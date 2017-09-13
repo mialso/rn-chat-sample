@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import { send, subscribe } from 'react-native-training-chat-server';
 import Header from './Header';
 import MessagesList from './MessagesList';
