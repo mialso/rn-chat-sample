@@ -8,19 +8,25 @@ import MessageInput from './MessageInput';
 const NAME = 'mialso';
 const CHANNEL = 'Reactivate';
 
-export default class App extends React.Component {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+});
 
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      typing: "",
+      typing: '',
       messages: [],
-    }
+    };
   }
 
   componentDidMount() {
-    subscribe(CHANNEL, messages => {
-      this.setState({messages});
+    subscribe(CHANNEL, (messages) => {
+      this.setState({ messages });
     });
   }
 
@@ -30,12 +36,10 @@ export default class App extends React.Component {
       sender: NAME,
       message: this.state.typing,
     });
-    this.setState({typing: ''});
-  }
+    this.setState({ typing: '' });
+  };
 
-  updateInput = (text) => {
-    return this.setState({typing: text})
-  }
+  updateInput = text => this.setState({ typing: text });
 
   render() {
     return (
@@ -53,10 +57,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
